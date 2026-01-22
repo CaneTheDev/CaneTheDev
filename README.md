@@ -1,30 +1,30 @@
 # Cane The Dev - Interactive Portfolio
 
-An interactive notepad-style portfolio website featuring realistic page-flip physics and hand-drawn elements. Built with vanilla JavaScript, CSS3 3D transforms, and custom physics simulation.
+A lightweight, interactive notepad-style portfolio website with simple page navigation. Built with vanilla JavaScript and optimized for performance across all devices.
 
 ## Features
 
-- **Realistic Page Flip Physics**: Custom-built physics engine simulating actual paper turning with 3D transforms, curl effects, and momentum
-- **Interactive Navigation**: Multiple input methods - keyboard arrows, touch swipes, screen taps, and navigation buttons
-- **Hand-Drawn Elements**: Animated real-time clock and exponential growth graph with SVG illustrations
-- **Responsive Design**: Optimized for desktop, tablet, and mobile devices
+- **Simple Page Navigation**: Clean fade transitions between pages
+- **Multiple Input Methods**: Keyboard arrows, touch swipes, screen taps, and navigation buttons
 - **Notepad Aesthetic**: Authentic lined paper design with margin lines and stacked page effects
-- **Smooth Animations**: 60fps animations using requestAnimationFrame for optimal performance
+- **Responsive Design**: Optimized for desktop, tablet, and mobile devices
+- **Lightweight**: No heavy 3D transforms or complex animations - fast loading on all devices
+- **Touch-Optimized**: Smooth scrolling and navigation on mobile devices
 
 ## Tech Stack
 
 - **HTML5**: Semantic markup with accessibility features
-- **CSS3**: Advanced 3D transforms, custom properties, and responsive design
-- **Vanilla JavaScript**: No frameworks - pure ES6+ with modular architecture
-- **SVG**: Hand-drawn illustrations and animated graphics
+- **CSS3**: Simple transitions and responsive design
+- **Vanilla JavaScript**: Pure ES6+ with minimal code
+- **No Dependencies**: Zero external libraries or frameworks
 
 ## Project Structure
 
 ```
 ├── index.html              # Main HTML structure with 6 portfolio pages
-├── style.css               # Complete styling with 3D effects and animations
-├── script.js               # Core navigation logic and UI interactions
-├── page-flip-physics.js    # Custom physics engine for realistic page flips
+├── style.css               # Complete styling with responsive design
+├── script.js               # Date display utility
+├── page-flip-physics.js    # Simple page navigation logic
 ├── Cane-image.webp         # Profile image
 ├── table.webp              # Background texture
 └── html.txt                # Plain text content reference
@@ -32,30 +32,31 @@ An interactive notepad-style portfolio website featuring realistic page-flip phy
 
 ## Pages Overview
 
-1. **Cover Page**: Introduction with animated clock and profile image
+1. **Cover Page**: Introduction with profile image
 2. **What I Do**: Skills and expertise overview
 3. **Selected Systems**: Featured projects with GitHub links
 4. **Tech Stack**: Comprehensive list of technologies and tools
-5. **Work Philosophy**: Principles and approach with animated growth graph
+5. **Work Philosophy**: Principles and approach
 6. **Contact**: Social links and contact information
 
 ## Key Technical Highlights
 
-### Page Flip Physics Engine
-- Custom easing functions for natural paper motion
-- 3D rotation with curl and bend effects
-- Dynamic shadows and depth perception
-- Optimized with `will-change` and `transform-style: preserve-3d`
+### Lightweight Design
+- Simple CSS fade transitions (0.3s)
+- No heavy 3D transforms or physics calculations
+- Optimized for low-end devices and slow connections
+- Minimal JavaScript footprint
 
 ### Vertical Rhythm System
-- Consistent 32px line height across all content
+- Consistent line height across all content (32px desktop, 28px tablet, 26px mobile)
 - Aligned with background ruled lines
 - Maintains readability and visual harmony
 
-### Interactive Elements
-- Real-time clock with rotating hands
-- Animated exponential growth graph (1x → 100x+)
-- Smooth page transitions with physics-based motion
+### Mobile-First Approach
+- Touch-friendly navigation
+- Responsive font sizes and spacing
+- Smooth scrolling on iOS and Android
+- Optimized padding and margins for small screens
 
 ## Navigation Controls
 
@@ -70,14 +71,16 @@ An interactive notepad-style portfolio website featuring realistic page-flip phy
 - Firefox 88+
 - Safari 14+
 - Mobile browsers (iOS Safari, Chrome Mobile)
+- Works on low-end devices
 
 ## Performance Optimizations
 
-- Hardware-accelerated CSS transforms
-- RequestAnimationFrame for smooth 60fps animations
-- Efficient event delegation
+- Simple CSS transitions instead of complex animations
+- No requestAnimationFrame loops
 - Minimal DOM manipulation
+- Efficient event delegation
 - Optimized image formats (WebP)
+- No external dependencies
 
 ## Customization
 
@@ -91,15 +94,17 @@ Edit CSS variables in `style.css`:
 }
 ```
 
-### Adjusting Flip Speed
-Modify physics constants in `page-flip-physics.js`:
-```javascript
-const FLIP_DURATION = 600; // milliseconds
+### Adjusting Transition Speed
+Modify transition in `style.css`:
+```css
+.page {
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
 ```
 
 ### Adding Pages
 1. Add new `<section class="page">` in `index.html`
-2. Update `totalPages` calculation (automatic)
+2. Update page numbers
 3. Maintain consistent page structure
 
 ## Local Development
@@ -128,4 +133,4 @@ Personal portfolio project. Feel free to use as inspiration, but please don't co
 
 ---
 
-Built with attention to detail, physics, and user experience.
+Built for speed, simplicity, and accessibility.

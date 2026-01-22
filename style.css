@@ -47,10 +47,7 @@ body {
     max-width: 700px;
     height: 90vh;
     max-height: 900px;
-    perspective: 1500px; /* Closer perspective for more dramatic 3D */
-    perspective-origin: center center;
-    filter: drop-shadow(0px 15px 35px rgba(0, 0, 0, 0.3))
-            drop-shadow(0px 5px 15px rgba(0, 0, 0, 0.2));
+    filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.2));
 }
 
 /* -----------------------------------------------------------
@@ -60,10 +57,9 @@ body {
     position: relative;
     width: 100%;
     height: 100%;
-    transform-style: preserve-3d;
 }
 
-/* Page stacking depth effect - creates visible page edges */
+/* Simple page stacking - no 3D */
 .notepad-stack::before,
 .notepad-stack::after {
     content: '';
@@ -97,27 +93,21 @@ body {
     background-color: var(--paper-color);
     padding: 0 60px 60px 90px;
     
-    /* Notebook Paper Lines - THE KEY: Lines scroll with content */
+    /* Notebook Paper Lines */
     background-image:
         linear-gradient(transparent 31px, var(--line-color) 31px),
         linear-gradient(90deg, var(--paper-margin) 1px, transparent 1px);
     background-size: 100% var(--line-height), 100% 100%;
     background-position: 0 0, 70px 0;
-    background-attachment: local; /* Lines scroll with content */
+    background-attachment: local;
     
     border-radius: 2px 5px 5px 2px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     
-    /* 3D Transform Properties for Realistic Page Flipping */
-    transform-origin: left center;
-    transform-style: preserve-3d;
-    backface-visibility: hidden;
+    /* Simple fade transition */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
     
-    /* No CSS transitions - JavaScript handles all animation for precise physics */
-    transition: none;
-    
-    overflow: hidden; /* Clip content at notepad edges */
-    will-change: transform, opacity, box-shadow;
+    overflow: hidden;
 }
 
 /* Active Page (Top of stack) */
@@ -130,12 +120,12 @@ body {
 /* Next Page (Behind active) */
 .page.next {
     z-index: 99;
-    transform: rotateY(0deg);
+    opacity: 0;
+    visibility: hidden;
 }
 
 /* Flipped Page (Turned over) */
 .page.flipped {
-    transform: rotateY(-180deg);
     opacity: 0;
     visibility: hidden;
     z-index: 0;
@@ -145,6 +135,7 @@ body {
 /* Hidden/Future pages */
 .page.hidden {
     z-index: 0;
+    opacity: 0;
     visibility: hidden;
 }
 
@@ -440,6 +431,15 @@ ul.skills li {
 /* Long Content Pages */
 .page.long-content {
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+/* Make pages scrollable on mobile when content overflows */
+@media (max-width: 768px) {
+    .page {
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
 }
 
 /* -----------------------------------------------------------
@@ -471,196 +471,36 @@ ul.skills li {
     scrollbar-color: rgba(0, 0, 0, 0.2) rgba(0, 0, 0, 0.05);
 }
 
-/* -----------------------------------------------------------
-   9. HAND-DRAWN CLOCK SKETCH
-   ----------------------------------------------------------- */
-.sketch-clock {
-    position: absolute;
-    bottom: 80px;
-    right: 40px;
-    width: 140px;
-    height: 180px;
-}
-
-.clock-svg {
-    width: 140px;
-    height: 140px;
-    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.1));
-}
-
-.sketch-arrow {
-    position: absolute;
-    top: -20px;
-    left: -50px;
-    width: 80px;
-    height: 40px;
-}
-
-.arrow-path {
-    fill: none;
-    stroke: var(--ink);
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    opacity: 0.6;
-}
-
-/* Clock face - hand-drawn wobbly circle */
-.clock-face {
-    fill: none;
-    stroke: var(--ink);
-    stroke-width: 2.5;
-    stroke-linecap: round;
-}
-
-/* Hour markers */
-.hour-marker {
-    stroke: var(--ink);
-    stroke-width: 2;
-    stroke-linecap: round;
-    opacity: 0.7;
-}
-
-/* Clock hands */
-.hour-hand {
-    stroke: var(--ink);
-    stroke-width: 5;
-    stroke-linecap: round;
-}
-
-.minute-hand {
-    stroke: var(--ink);
-    stroke-width: 3;
-    stroke-linecap: round;
-}
-
-.center-dot {
-    fill: var(--ink);
-}
-
-/* -----------------------------------------------------------
-   10. EXPONENTIAL GROWTH GRAPH
-   ----------------------------------------------------------- */
-.growth-graph {
-    width: 300px;
-    height: 250px;
-    margin: var(--line-height) auto 0;
-    position: relative;
-    overflow: visible; /* Allow SVG to render outside */
-}
-
-.graph-svg {
-    width: 100%;
-    height: 100%;
-    overflow: visible; /* Allow curve to break out */
-}
-
-.axis {
-    stroke: var(--ink);
-    stroke-width: 2;
-    stroke-linecap: round;
-}
-
-.axis-label {
-    fill: var(--ink);
-    font-family: 'Kalam', cursive;
-    font-size: 14px;
-    opacity: 0.7;
-}
-
-.origin-label {
-    fill: var(--ink);
-    font-family: 'Kalam', cursive;
-    font-size: 12px;
-    opacity: 0.6;
-}
-
-.growth-curve {
-    fill: none;
-    stroke: rgb(37, 99, 235);
-    stroke-width: 3;
-    stroke-linecap: round;
-    stroke-dasharray: 500;
-    stroke-dashoffset: 500;
-}
-
-.growth-curve.animate {
-    animation: drawCurve 7s ease-in forwards; /* 7 second animation */
-}
-
-@keyframes drawCurve {
-    to {
-        stroke-dashoffset: 0;
-    }
-}
-
-.curve-arrow {
-    opacity: 0;
-}
-
-.curve-arrow.show {
-    animation: fadeInArrow 0.5s ease-out 7s forwards;
-}
-
-@keyframes fadeInArrow {
-    to {
-        opacity: 1;
-    }
-}
-
-.arrow-line {
-    stroke: rgb(37, 99, 235);
-    stroke-width: 3;
-    stroke-linecap: round;
-}
-
-.arrow-head {
-    fill: rgb(37, 99, 235);
-}
-
-.growth-counter {
-    fill: rgb(5, 150, 105);
-    font-family: 'Kalam', cursive;
-    font-size: 24px;
-    font-weight: 700;
-    opacity: 0;
-}
-
-.growth-counter.show {
-    opacity: 1;
-}
-
-.graph-note {
-    fill: rgb(220, 38, 38);
-    font-family: 'Kalam', cursive;
-    font-size: 15px;
-    font-style: italic;
-    opacity: 0;
-}
-
-.graph-note.show {
-    animation: fadeInNote 0.5s ease-out 7.3s forwards;
-}
-
-@keyframes fadeInNote {
-    to {
-        opacity: 1;
-    }
-}
+/* Clock and Graph removed for performance */
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    :root {
+        --line-height: 32px; /* Keep same line height as desktop */
+    }
+    
     body {
         padding: 10px;
     }
     
     .notepad-container {
         max-width: 100%;
+        height: 85vh;
     }
     
     .page {
-        padding: 30px 40px 30px 60px;
+        padding: 32px 30px 30px 50px; /* Top padding = line-height for alignment */
+        overflow-y: auto; /* Enable scrolling on all pages for mobile */
+        -webkit-overflow-scrolling: touch;
+        /* Keep same background lines as desktop */
+        background-image:
+            linear-gradient(transparent 31px, var(--line-color) 31px),
+            linear-gradient(90deg, var(--paper-margin) 1px, transparent 1px);
+        background-size: 100% var(--line-height), 100% 100%;
+        background-position: 0 0, 50px 0;
     }
+    
+    /* Remove the specific page 5 override since all pages are now scrollable */
     
     .nav-arrow {
         width: 40px;
@@ -670,21 +510,88 @@ ul.skills li {
     
     h1 {
         font-size: 32px;
+        line-height: 64px; /* 2 lines */
     }
     
     h2 {
-        font-size: 26px;
+        font-size: 22px;
+        line-height: var(--line-height);
+    }
+    
+    h3 {
+        font-size: 17px;
+        line-height: var(--line-height);
     }
     
     .profile-image {
         width: 60px;
         height: 60px;
     }
+    
+    .tagline {
+        font-size: 18px;
+        line-height: var(--line-height);
+    }
+    
+    .intro, .philosophy, .credibility, .center-gravity,
+    .work-principle-first, .work-principle {
+        font-size: 15px;
+        line-height: var(--line-height);
+    }
+    
+    ul.skills {
+        font-size: 15px;
+        line-height: var(--line-height);
+    }
+    
+    .project p, .project-link {
+        font-size: 15px;
+        line-height: var(--line-height);
+    }
+    
+    .stack-section p, .tools {
+        font-size: 15px;
+        line-height: var(--line-height);
+    }
+    
+    .contact-link {
+        font-size: 15px;
+        line-height: var(--line-height);
+    }
+    
+    .next-page-link {
+        font-size: 15px;
+        line-height: var(--line-height);
+    }
+    
+    .note-date {
+        font-size: 13px;
+        line-height: var(--line-height);
+    }
+    
+    .note-subject {
+        font-size: 17px;
+        line-height: var(--line-height);
+    }
+    
+
 }
 
 @media (max-width: 480px) {
+    :root {
+        --line-height: 32px; /* Keep same line height as desktop */
+    }
+    
     .page {
-        padding: 20px 30px 20px 50px;
+        padding: 32px 25px 20px 45px; /* Top padding = line-height for alignment */
+        overflow-y: auto; /* Enable scrolling on all pages for small phones */
+        -webkit-overflow-scrolling: touch;
+        /* Keep same background lines as desktop */
+        background-image:
+            linear-gradient(transparent 31px, var(--line-color) 31px),
+            linear-gradient(90deg, var(--paper-margin) 1px, transparent 1px);
+        background-size: 100% var(--line-height), 100% 100%;
+        background-position: 0 0, 45px 0;
     }
     
     .nav-arrow.left {
@@ -695,16 +602,78 @@ ul.skills li {
         right: 10px;
     }
     
-    .spiral-binder {
-        width: 30px;
+    h1 {
+        font-size: 26px;
+        line-height: 64px; /* 2 lines */
     }
     
-    h1 {
-        font-size: 28px;
+    h2 {
+        font-size: 20px;
+        line-height: var(--line-height);
+    }
+    
+    h3 {
+        font-size: 16px;
+        line-height: var(--line-height);
+    }
+    
+    .tagline {
+        font-size: 17px;
+        line-height: var(--line-height);
+    }
+    
+    .intro, .philosophy, .credibility, .center-gravity,
+    .work-principle-first, .work-principle {
+        font-size: 14px;
+        line-height: var(--line-height);
+    }
+    
+    ul.skills {
+        font-size: 14px;
+        line-height: var(--line-height);
+        padding-left: 18px;
+    }
+    
+    .project p, .project-link {
+        font-size: 14px;
+        line-height: var(--line-height);
+    }
+    
+    .stack-section p, .tools {
+        font-size: 14px;
+        line-height: var(--line-height);
+    }
+    
+    .contact-link {
+        font-size: 14px;
+        line-height: var(--line-height);
+    }
+    
+    .next-page-link {
+        font-size: 14px;
+        line-height: var(--line-height);
+    }
+    
+    .note-date {
+        font-size: 12px;
+        line-height: var(--line-height);
+    }
+    
+    .note-subject {
+        font-size: 16px;
+        line-height: var(--line-height);
     }
     
     .title-with-image {
         flex-direction: column;
         align-items: flex-start;
+        gap: 10px;
     }
+    
+    .profile-image {
+        width: 50px;
+        height: 50px;
+    }
+    
+
 }
