@@ -61,11 +61,37 @@
     
     // Arrow click navigation
     if (leftArrow) {
-        leftArrow.addEventListener('click', prevPage);
+        leftArrow.addEventListener('click', (e) => {
+            e.stopPropagation();
+            prevPage();
+        });
     }
     if (rightArrow) {
-        rightArrow.addEventListener('click', nextPage);
+        rightArrow.addEventListener('click', (e) => {
+            e.stopPropagation();
+            nextPage();
+        });
     }
+    
+    // Next/Previous page link navigation
+    document.addEventListener('click', (e) => {
+        const nextLink = e.target.closest('.next-page-link');
+        const prevLink = e.target.closest('.prev-page-link');
+        
+        if (nextLink) {
+            e.preventDefault();
+            e.stopPropagation();
+            nextPage();
+            return;
+        }
+        
+        if (prevLink) {
+            e.preventDefault();
+            e.stopPropagation();
+            prevPage();
+            return;
+        }
+    });
     
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
@@ -114,7 +140,11 @@
     
     if (!isMobile) {
         document.addEventListener('click', (e) => {
-            if (e.target.closest('.nav-arrow') || e.target.closest('a')) {
+            // Ignore clicks on arrows, links, and navigation links
+            if (e.target.closest('.nav-arrow') || 
+                e.target.closest('a') || 
+                e.target.closest('.next-page-link') || 
+                e.target.closest('.prev-page-link')) {
                 return;
             }
             

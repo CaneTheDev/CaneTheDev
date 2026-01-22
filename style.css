@@ -399,6 +399,30 @@ ul.skills li {
     font-size: 19.2px;
     line-height: var(--line-height);
     margin-bottom: 0;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(37, 99, 235, 0.3);
+}
+
+.next-page-link:hover,
+.next-page-link:active {
+    color: rgb(29, 78, 216);
+}
+
+.prev-page-link {
+    text-align: left;
+    color: rgb(37, 99, 235);
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 19.2px;
+    line-height: var(--line-height);
+    margin-bottom: var(--line-height);
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(37, 99, 235, 0.3);
+}
+
+.prev-page-link:hover,
+.prev-page-link:active {
+    color: rgb(29, 78, 216);
 }
 
 /* -----------------------------------------------------------
@@ -564,6 +588,11 @@ ul.skills li {
         line-height: var(--line-height);
     }
     
+    .prev-page-link {
+        font-size: 15px;
+        line-height: var(--line-height);
+    }
+    
     .note-date {
         font-size: 13px;
         line-height: var(--line-height);
@@ -650,6 +679,11 @@ ul.skills li {
     }
     
     .next-page-link {
+        font-size: 14px;
+        line-height: var(--line-height);
+    }
+    
+    .prev-page-link {
         font-size: 14px;
         line-height: var(--line-height);
     }
