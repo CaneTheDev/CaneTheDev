@@ -1,0 +1,120 @@
+← Tap screen • Arrow keys →
+← →
+Page 1 of 6
+
+Jan 22, 2026
+
+Intro 101
+
+Cane The Dev
+Cane The Dev
+Systems Engineer / Polyglot Builder
+
+I build backend-heavy systems where reliability, performance, and failure modes actually matter, especially under real load.
+
+Trading systems, real-time apps, AI pipelines, and polyglot backends.
+
+Next page →
+
+Page 2 of 6
+
+What I Do
+Design distributed systems that handle real traffic
+Build native applications for Mobile (iOS/Android) and Desktop (Windows/Cross-platform)
+Work end-to-end: architecture → implementation → deployment → failure analysis
+Debug production issues involving concurrency, latency, and state
+Automate workflows and tools that remove bottlenecks for teams
+My work spans frontend, backend, data, and infrastructure, but my center of gravity is backend systems.
+
+Most of my serious work lives in private repositories or production systems.
+
+Next page →
+
+Page 3 of 6
+
+Selected Systems
+Polyglot Nexus
+Real-time chat system designed for high concurrency and low latency. WebSocket connection setup ~100µs. Go for network IO, Elixir/Phoenix for orchestration, SolidJS frontend.
+
+→ github.com/CaneTheDev/Polyglot-Nexus
+
+Osas Online Store
+E-commerce platform with product catalog, cart management, and checkout flow. Built with modern web stack focusing on performance and user experience. JavaScript.
+
+→ github.com/CaneTheDev/osas-online-store
+
+Multilingual Subtitle Generator
+Audio-to-subtitle pipeline using Faster-Whisper for speech recognition. GPU-accelerated processing on Kaggle. Handles multiple languages with quality enhancement. Python, FFmpeg.
+
+→ github.com/CaneTheDev/Subtitle-Generator
+
+Private Collection
+Production systems under NDA involving trading automation, data pipelines, and infrastructure. Details available on request.
+
+Next page →
+
+Page 4 of 6
+
+What I Build With
+Over time, I've worked across many layers of the stack. I choose tools based on constraints, not trends.
+
+Interfaces: Web, Mobile & Desktop
+I don't just build web views. I build native clients when performance or OS integration matters.
+
+Web: SolidJS, React, Vue.js
+
+Mobile: Flutter, Kotlin Multiplatform (KMP)
+
+Desktop: C++ (Cross-platform), C# (Native Windows)
+
+Backend & Systems
+Most of my work lives here , services that handle concurrency, real traffic, and failure modes.
+
+Rust, Go, Elixir (Phoenix), Node.js, Python
+
+Data, Storage & Messaging
+I've worked with both transactional and analytical workloads, choosing stores based on access patterns and scale.
+
+PostgreSQL, Redis, SQLite, Message Queues, File-based pipelines
+
+AI & Machine Learning
+I build AI-powered systems that solve real problems: speech recognition pipelines, trading bots with ML-driven strategies, and data analysis for production decisions.
+
+Python (with its vast ML ecosystem), Kaggle (for GPU access)
+
+Infrastructure & Delivery
+I care about repeatability, observability, and knowing how systems fail.
+
+Linux, Docker, CI pipelines, Cloud deployments
+
+Tools change. Principles don't.
+
+Next page →
+
+Page 5 of 6
+
+How I Work
+I optimize for long-term system health, not short-term cleverness.
+
+I use AI to accelerate implementation, not to replace judgment.
+
+I write tests and simulations because production always finds edge cases.
+
+I value readability first, performance second, cleverness last.
+
+I ship incrementally and measure before optimizing.
+
+I document decisions so future me (or teammates) can reason about them.
+
+Next page →
+
+Page 6 of 6
+
+Let's Talk
+ canethedev@gmail.com
+
+ github.com/CaneTheDev
+
+ linkedin.com/in/super-man-994963329
+
+ x.com/CaneDevMax

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta charset="UTF-8">
+<meta name="description" content="Systems Engineer / Polyglot Builder">
+<title>Cane The Dev Portfolio</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<noscript>
+<style>
+.page { opacity: 1 !important; visibility: visible !important; position: relative !important; }
+.nav-arrow { display: none; }
+</style>
+</noscript>
+</head>
+<body>
+<div class="notepad-container">
+<div class="nav-hint hidden">← Tap screen • Arrow keys →</div>
+<!-- Navigation Arrows -->
+<button class="nav-arrow left" aria-label="Previous page">←</button>
+<button class="nav-arrow right disabled" aria-label="Next page">→</button>
+<div class="notepad-stack">
+<!-- Page 1: Cover -->
+<section class="page flipped" style="z-index: 0;">
+<div class="page-content">
+<p class="page-number">Page 1 of 6</p>
+<p class="note-date" id="current-date">Jan 22, 2026</p>
+<p class="note-subject">Intro 101</p>
+<div class="title-with-image">
+<img src="Cane-image.webp" alt="Cane The Dev" class="profile-image">
+<h1>Cane The Dev</h1>
+</div>
+<p class="tagline">Systems Engineer / Polyglot Builder</p>
+<p class="intro">I build backend-heavy systems where reliability, performance, and failure modes actually matter, especially under real load.</p>
+<p class="intro">Trading systems, real-time apps, AI pipelines, and polyglot backends.</p>
+
+<!-- Hand-drawn Clock Sketch -->
+<div class="sketch-clock">
+    <svg viewBox="0 0 200 200" class="clock-svg">
+        <!-- Clock face circle (hand-drawn style) -->
+        <circle cx="100" cy="100" r="80" class="clock-face" />
+        
+        <!-- Hour markers -->
+        <line x1="100" y1="25" x2="100" y2="35" class="hour-marker" />
+        <line x1="165" y1="65" x2="155" y2="70" class="hour-marker" />
+        <line x1="175" y1="100" x2="165" y2="100" class="hour-marker" />
+        <line x1="165" y1="135" x2="155" y2="130" class="hour-marker" />
+        <line x1="100" y1="175" x2="100" y2="165" class="hour-marker" />
+        <line x1="35" y1="135" x2="45" y2="130" class="hour-marker" />
+        <line x1="25" y1="100" x2="35" y2="100" class="hour-marker" />
+        <line x1="35" y1="65" x2="45" y2="70" class="hour-marker" />
+        
+        <!-- Clock hands (will be rotated by JavaScript) -->
+        <line x1="100" y1="100" x2="100" y2="50" class="hour-hand" id="hour-hand" />
+        <line x1="100" y1="100" x2="100" y2="35" class="minute-hand" id="minute-hand" />
+        
+        <!-- Center dot -->
+        <circle cx="100" cy="100" r="5" class="center-dot" />
+    </svg>
+    <svg viewBox="0 0 100 60" class="sketch-arrow">
+        <!-- Hand-drawn arrow pointing to clock -->
+        <path d="M 10 30 Q 30 20, 50 25 L 48 20 M 50 25 L 45 28" class="arrow-path" />
+    </svg>
+</div>
+
+<p class="next-page-link">Next page →</p>
+</div>
+</section>
+<!-- Page 2: What I Do -->
+<section class="page flipped" style="z-index: 1;">
+<div class="page-content">
+<p class="page-number">Page 2 of 6</p>
+<h2>What I Do</h2>
+<ul class="skills">
+<li>Design distributed systems that handle real traffic</li>
+<li>Build native applications for Mobile (iOS/Android) and Desktop (Windows/Cross-platform)</li>
+<li>Work end-to-end: architecture → implementation → deployment → failure analysis</li>
+<li>Debug production issues involving concurrency, latency, and state</li>
+<li>Automate workflows and tools that remove bottlenecks for teams</li>
+</ul>
+<p class="center-gravity">My work spans frontend, backend, data, and infrastructure, but my center of gravity is backend systems.</p>
+<p class="credibility">Most of my serious work lives in private repositories or production systems.</p>
+<p class="next-page-link">Next page →</p>
+</div>
+</section>
+<!-- Page 3: Selected Systems -->
+<section class="page flipped" style="z-index: 2;">
+<div class="page-content">
+<p class="page-number">Page 3 of 6</p>
+<h2>Selected Systems</h2>
+<div class="project">
+<h3>Polyglot Nexus</h3>
+<p>Real-time chat system designed for high concurrency and low latency. WebSocket connection setup ~100µs. Go for network IO, Elixir/Phoenix for orchestration, SolidJS frontend.</p>
+<p class="project-link">→ <a href="https://github.com/CaneTheDev/Polyglot-Nexus-A-Blueprint-for-Modern-Microservices" target="_blank">github.com/CaneTheDev/Polyglot-Nexus</a></p>
+</div>
+<div class="project">
+<h3>Osas Online Store</h3>
+<p>E-commerce platform with product catalog, cart management, and checkout flow. Built with modern web stack focusing on performance and user experience. JavaScript.</p>
+<p class="project-link">→ <a href="https://github.com/CaneTheDev/osas-online-store" target="_blank">github.com/CaneTheDev/osas-online-store</a></p>
+</div>
+<div class="project">
+<h3>Multilingual Subtitle Generator</h3>
+<p>Audio-to-subtitle pipeline using Faster-Whisper for speech recognition. GPU-accelerated processing on Kaggle. Handles multiple languages with quality enhancement. Python, FFmpeg.</p>
+<p class="project-link">→ <a href="https://github.com/CaneTheDev/Subtitle-Generator---Spanish-version" target="_blank">github.com/CaneTheDev/Subtitle-Generator</a></p>
+</div>
+<div class="project">
+<h3>Private Collection</h3>
+<p>Production systems under NDA involving trading automation, data pipelines, and infrastructure. Details available on request.</p>
+</div>
+<p class="next-page-link">Next page →</p>
+</div>
+</section>
+<!-- Page 4: What I Build With -->
+<section class="page long-content flipped" style="z-index: 3;">
+<div class="page-content">
+<p class="page-number">Page 4 of 6</p>
+<h2>What I Build With</h2>
+<p class="philosophy">Over time, I've worked across many layers of the stack. I choose tools based on constraints, not trends.</p>
+<div class="stack-section">
+<h3>Interfaces: Web, Mobile & Desktop</h3>
+<p>I don't just build web views. I build native clients when performance or OS integration matters.</p>
+<p class="tools"><strong>Web:</strong> SolidJS, React, Vue.js</p>
+<p class="tools"><strong>Mobile:</strong> Flutter, Kotlin Multiplatform (KMP)</p>
+<p class="tools"><strong>Desktop:</strong> C++ (Cross-platform), C# (Native Windows)</p>
+</div>
+<div class="stack-section">
+<h3>Backend & Systems</h3>
+<p>Most of my work lives here , services that handle concurrency, real traffic, and failure modes.</p>
+<p class="tools">Rust, Go, Elixir (Phoenix), Node.js, Python</p>
+</div>
+<div class="stack-section">
+<h3>Data, Storage & Messaging</h3>
+<p>I've worked with both transactional and analytical workloads, choosing stores based on access patterns and scale.</p>
+<p class="tools">PostgreSQL, Redis, SQLite, Message Queues, File-based pipelines</p>
+</div>
+<div class="stack-section">
+<h3>AI & Machine Learning</h3>
+<p>I build AI-powered systems that solve real problems: speech recognition pipelines, trading bots with ML-driven strategies, and data analysis for production decisions.</p>
+<p class="tools">Python (with its vast ML ecosystem), Kaggle (for GPU access)</p>
+</div>
+<div class="stack-section">
+<h3>Infrastructure & Delivery</h3>
+<p>I care about repeatability, observability, and knowing how systems fail.</p>
+<p class="tools">Linux, Docker, CI pipelines, Cloud deployments</p>
+</div>
+<p class="credibility">Tools change. Principles don't.</p>
+<p class="next-page-link">Next page →</p>
+</div>
+</section>
+<!-- Page 5: How I Work -->
+<section class="page flipped" style="z-index: 4;">
+<div class="page-content">
+<p class="page-number">Page 5 of 6</p>
+<h2>How I Work</h2>
+<p class="work-principle-first">I optimize for long-term system health, not short-term cleverness.</p>
+<p class="work-principle">I use AI to accelerate implementation, not to replace judgment.</p>
+<p class="work-principle">I write tests and simulations because production always finds edge cases.</p>
+<p class="work-principle">I value readability first, performance second, cleverness last.</p>
+<p class="work-principle">I ship incrementally and measure before optimizing.</p>
+<p class="work-principle">I document decisions so future me (or teammates) can reason about them.</p>
+
+<!-- Hand-drawn Exponential Growth Graph -->
+<div class="growth-graph">
+    <svg viewBox="0 0 300 250" class="graph-svg">
+        <!-- Axes -->
+        <line x1="30" y1="220" x2="270" y2="220" class="axis" />
+        <line x1="30" y1="220" x2="30" y2="30" class="axis" />
+        
+        <!-- Axis labels -->
+        <text x="150" y="245" class="axis-label">Time</text>
+        <text x="10" y="125" class="axis-label" transform="rotate(-90 10 125)">Output</text>
+        
+        <!-- Origin label -->
+        <text x="20" y="235" class="origin-label">0</text>
+        
+        <!-- Exponential curve that grows to the top of graph -->
+        <path d="M 30 220 Q 60 218, 90 212 T 120 200 T 150 180 T 180 145 T 210 90 T 240 40 T 265 35" 
+              class="growth-curve" 
+              id="growth-curve" />
+        
+        <!-- Arrow at the end of curve pointing up -->
+        <g id="curve-arrow" class="curve-arrow">
+            <line x1="265" y1="35" x2="265" y2="20" class="arrow-line" />
+            <polygon points="265,20 260,28 270,28" class="arrow-head" />
+        </g>
+        
+        <!-- Animated counter showing exponential growth -->
+        <text x="200" y="100" class="growth-counter" id="growth-counter">1x</text>
+        
+        <!-- Annotation text -->
+        <text x="120" y="140" class="graph-note">With AI & collaboration!</text>
+    </svg>
+</div>
+
+<p class="next-page-link">Next page →</p>
+</div>
+</section>
+<!-- Page 6: Contact -->
+<section class="page active" style="z-index: 100;">
+<div class="page-content">
+<p class="page-number">Page 6 of 6</p>
+<h2>Let's Talk</h2>
+<p class="contact-link">
+<span class="icon">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+<path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"></path>
+</svg>
+</span>
+<a href="mailto:canethedev@gmail.com">canethedev@gmail.com</a>
+</p>
+<p class="contact-link">
+<span class="icon">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+<path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+</svg>
+</span>
+<a href="https://github.com/CaneTheDev" target="_blank">github.com/CaneTheDev</a>
+</p>
+<p class="contact-link">
+<span class="icon">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+<path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
+</svg>
+</span>
+<a href="https://www.linkedin.com/in/super-man-994963329" target="_blank">linkedin.com/in/super-man-994963329</a>
+</p>
+<p class="contact-link">
+<span class="icon">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+</svg>
+</span>
+<a href="https://x.com/CaneDevMax" target="_blank">x.com/CaneDevMax</a>
+</p>
+</div>
+</section>
+</div>
+</div>
+<script src="page-flip-physics.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
